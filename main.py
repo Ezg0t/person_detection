@@ -40,10 +40,6 @@ async def upload(file: UploadFile = File(...)):
 
 
 
-
-
-
-
     #return {"message": f"Successfuly uploaded {file}"}
     #return detect(file.filename)
 '''async def image(image: UploadFile = File(...)):

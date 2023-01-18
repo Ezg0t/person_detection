@@ -3,6 +3,7 @@ import os
 from py.person_detection_image import detect
 from typing import Union
 from fastapi import FastAPI
+from starlette.responses import FileResponse
 
 app = FastAPI()
 
@@ -11,6 +12,10 @@ def read_root():
     return {"Hello": "World"}
 
 @app.get("/")
+async def root():
+    return FileResponse('index.html')
+
+@app.get("/ml")
 def main():
     return detect("img/zdj_1.jpg")
 #    format = [".jpg", ".png", ".jpeg"]

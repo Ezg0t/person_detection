@@ -32,10 +32,7 @@ async def upload(file: UploadFile = File(...)):
             f.write(contents)
     except Exception:
         return {"message": "There was an error uploading the file"}
-    #finally:
-        #file.file.close()
     return detect(file.filename)
-
 
 
 

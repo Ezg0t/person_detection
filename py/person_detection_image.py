@@ -1,7 +1,10 @@
 import cv2
+import numpy
 import numpy as np
 import imutils
 import base64
+
+from fastapi import UploadFile
 from starlette.responses import HTMLResponse
 
 protopath = "model/MobileNetSSD_deploy.prototxt"
@@ -14,9 +17,8 @@ CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
            "sofa", "train", "tvmonitor"]
 
 
-def detect(zdjecie: str):
+def detect(zdjecie):
     image = cv2.imread(zdjecie)
-
     image = imutils.resize(image, width=600)
     counter = 0
     (H, W) = image.shape[:2]
@@ -54,6 +56,6 @@ def detect(zdjecie: str):
 
         """
 
-    return HTMLResponse(content=html_content, status_code=200)
+    return {"img": im_b64.decode("utf-8"), "count": str(counter)}
 
 

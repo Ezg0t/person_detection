@@ -8,10 +8,27 @@
  <p>Upload your photo and we will detect every person from it.</p>
 
 
-<form enctype = "multipart/form-data" action = "upload_script.py" method = "post">
-<br> File Uploading <input type = "file" name = "filename" />
-<p> <input type = "submit" value = "RUN" /> </p>
+<form action="upload-test" enctype="multipart/form-data" method="post" autocomplete="off">
+    <div class="mb-3">
+        <div class="bg-light p-5 rounded-lg m-3">
+            <label for="file" class="form-label">File Input</label>
+            <input class="form-control" type="file" id="file" name="file">
+        </div>
+    </div>
+
+    <div class="bg-light rounded-lg m-3">
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="button submit"><i class="bx bxs-cloud-upload"
+                    style="font-size:1.4em;"></i> run</button>
+        </div>
+    </div>
 </form>
+
+
+
+
+
+
 
 </body>
 </html>
